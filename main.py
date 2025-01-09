@@ -15,7 +15,8 @@ app.title("Tube DL")
 title = customtkinter.CTkLabel(app, text="insert a youtube link")
 title.pack(padx=10,pady=10)
 
-
+# link input
+link = customtkinter.CTkEntry(app, width=350, height=40)
 
 #run app
 app.mainloop()
