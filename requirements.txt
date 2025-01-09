@@ -1,0 +1,4 @@
+customtkinter
+tkinter
+yt-dlp
+ffmpeg-python
