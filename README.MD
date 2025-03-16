@@ -1,139 +1,111 @@
+# YouTube Downloader & Translator
 
-# TubeDL
+[![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![Tkinter](https://img.shields.io/badge/Tkinter-GUI-yellow.svg)](https://docs.python.org/3/library/tkinter.html)
+[![CustomTkinter](https://img.shields.io/badge/CustomTkinter-GUI-orange.svg)](https://github.com/TomSchimansky/CustomTkinter)
 
-TubeDL is a simple and efficient Tube downloader with a modern GUI that allows users to download videos in either MP3 or MP4 format.
-
+This personal project is a Python application with a graphical user interface (GUI) built using Tkinter/CustomTkinter. It allows users to download YouTube videos as MP4 (video) or MP3 (audio) files, and it includes an experimental feature for translating videos from English to French or Russian.
 
 ## Features
 
-- Clean and modern user interface
-- Download Tube videos as MP3 or MP4
-- Multiple quality options for both formats
-- Simple and intuitive design
-- Downloads saved in organized folder structure
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-* Python 3.8 or higher installed
-* FFmpeg installed on your system
-* Internet connection
+*   **YouTube Download:**
+    *   Downloads YouTube videos.
+    *   Provides options to download as MP4 (video) or MP3 (audio).
+*   **Transcription (WhisperAI):**
+    *   Uses WhisperAI to transcribe the audio of downloaded videos, generating English text with timestamps.
+*   **Translation (LibreTranslate):**
+    *   Translates the English transcript to either French or Russian using the LibreTranslate library.
+*   **Text-to-Speech (EdgeTTS):**
+    *   Converts the translated text into an audio file using EdgeTTS.
+*   **Video Dubbing (MoviePy):**
+    *   Combines the newly generated translated audio with the original video, attempting to synchronize the audio with the original video's timestamps using MoviePy.
+*   **GUI (Tkinter/CustomTkinter):**
+    *   Provides a user-friendly interface for pasting YouTube links, selecting download options, and choosing the translation language.
 
 ## Installation
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/RyderBlack/TubeDL.git
-cd TubeDL
-```
+1.  **Prerequisites:**
+    *   Python 3.x (tested with Python 3.7+)
+    *   All required libraries are listed in `requirements.txt`.
+    *   FFmpeg (required by Whisper and MoviePy)
 
-### 2. Install FFmpeg:
+2.  **Install FFmpeg:**
 
-#### Windows:
-- Download from [ffmpeg.org](https://ffmpeg.org/download.html)
-- Or use Chocolatey: `choco install ffmpeg`
-- Or use Scoop: `scoop install ffmpeg`
+    *   **macOS:** `brew install ffmpeg`
+    *   **Ubuntu/Debian:** `sudo apt update && sudo apt install ffmpeg`
+    *   **Windows:** Download FFmpeg from a trusted source (e.g., [gyan.dev](https://www.gyan.dev/ffmpeg/builds/)) and add the `bin` directory to your system's PATH environment variable.  *Detailed instructions for adding to PATH can be found online.*
 
-#### MacOS:
-```bash
-brew install ffmpeg
-```
+3.  **Clone the Repository:**
 
-#### Linux:
-```bash
-sudo apt update
-sudo apt install ffmpeg
-```
+    ```bash
+    git clone <your_repository_url>  # Replace with your repository URL
+    cd <your_project_directory>  # Replace with your project directory name
+    ```
 
-### 3. Install Python dependencies:
-```bash
-pip install -r requirements.txt
-```
+4.  **Create a Virtual Environment (Recommended):**
 
-### 4. If tkinter is missing:
-#### Windows:
-- Reinstall Python with tcl/tk option checked
+    It's highly recommended to use a virtual environment to isolate project dependencies:
 
-#### Linux:
-```bash
-sudo apt-get install python3-tk
-```
+    ```bash
+    python3 -m venv venv  # Create a virtual environment named 'venv'
+    source venv/bin/activate  # Activate the environment (macOS/Linux)
+    venv\Scripts\activate  # Activate the environment (Windows)
+    ```
 
-#### MacOS:
-```bash
-brew install python-tk
-```
+5.  **Install Dependencies using requirements.txt:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+6.  **Run the Application:**
+
+    ```bash
+    python main.py  # Replace with your main Python file name
+    ```
 
 ## Usage
 
-1. Run the application:
-```bash
-python main.py
-```
+1.  **Copy YouTube Link:** Copy the URL of the YouTube video you want to download.
+2.  **Paste Link:** Paste the link into the designated input field in the application.
+3.  **Select Download Format:** Choose whether to download the video as MP4 (video) or MP3 (audio).
+4.  **Translation Options (Optional):**
+    *   Enable the translation feature.
+    *   Select the target language (French or Russian).
+5.  **Start Download/Translation:** Click the button to start the download and (optional) translation process.
+6.  **Output:** The downloaded/translated files will be saved in a designated output directory (specify the default directory in your README, or explain how the user can choose it. *e.g., "Files are saved in the `output` folder within the project directory."*).
 
-2. Enter a Tube URL in the input field
-3. Select your desired format (MP3 or MP4)
-4. Click the Download button
-5. Find your downloaded files in the 'downloads' folder
+## Known Issues and Limitations
 
-## File Structure
+*   **Audio Synchronization:** The primary limitation is the imperfect synchronization of the translated audio with the original video.  Different languages have different speaking speeds, causing the translated audio to often cut off or desynchronize. This is an area for future improvement.
+* **Whisper Model Size:**  If you're using a large Whisper model, transcription can be slow and resource-intensive.  *You might mention which Whisper model you use by default.*
+*   **LibreTranslate Quality:** The quality of the translation depends on the LibreTranslate models.
+* **EdgeTTS Voice Selection:** Describe how (or *if*) users can select different voices for EdgeTTS.  *e.g., "Currently, the default EdgeTTS voice is used.  Voice selection is planned for a future update."*
+* **Error Handling:** Describe how your application handles errors (e.g., invalid YouTube links, network issues, failed downloads, etc.). Does it show error messages to the user? *e.g., "The application displays error messages in a pop-up window if there are issues with the download or translation process."*
 
-```
-TubeDL/
-│
-├── main.py           # Main application file
-├── requirements.txt  # Python dependencies
-├── README.md        # This file
-└── downloads/       # Downloaded files directory
-```
+## Future Improvements
 
-## Contributing
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## Dependencies
-
-- customtkinter
-- yt-dlp
-- ffmpeg-python
-
-## Known Issues
-
-- Some videos might not be available for download due to YT's restrictions
-- Download speed depends on your internet connection
-- Some high-quality videos might take longer to process
-
-## Troubleshooting
-
-### Common Issues:
-
-1. **FFmpeg not found**
-   - Make sure FFmpeg is properly installed and added to your system's PATH
-
-2. **Download fails**
-   - Check your internet connection
-   - Verify the Tube link is valid
-   - Ensure you have write permissions in the downloads directory
-
-3. **GUI doesn't launch**
-   - Verify tkinter is properly installed
-   - Check Python version compatibility
+*   **Improved Audio Synchronization:** Explore techniques to better synchronize the translated audio, such as:
+    *   **Speech Rate Adjustment:**  Attempt to adjust the playback speed of the translated audio.
+    *   **Sentence Segmentation:**  Segment the transcript into smaller chunks (sentences or phrases) and align them more precisely.
+    *   **Forced Alignment:**  Use forced alignment tools (e.g., aeneas) to create more accurate timestamps.
+*   **Progress Bar:**  Implement a progress bar to show the download and translation progress.
+*   **More Languages:** Add support for more translation languages.
+*   **Customizable Output Directory:** Allow users to choose the output directory for downloaded/translated files.
+*   **Batch Processing:**  Enable downloading and translating multiple videos at once.
+* **Improved UI/UX:**  Refine the user interface for better usability and aesthetics.
+* **Error Handling and Logging:** Implement robust error handling and logging to provide better feedback to the user and aid in debugging.
+* **Subtitle Generation:** Provide an option to generate subtitle files (e.g., SRT) from the translated transcript.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details. (Remember to create a LICENSE file and choose an appropriate license).
 
-## Contact
+## Acknowledgements
 
-
-Project Link: [https://github.com/RyderBlack/TubeDL](https://github.com/RyderBlack/TubeDL)
-
-## Acknowledgments
-
-- [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter)
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp)
-- [FFmpeg](https://ffmpeg.org/)
+*   Tkinter/CustomTkinter
+*   WhisperAI
+*   LibreTranslate
+*   EdgeTTS
+*   MoviePy
+*   *And any other libraries you use prominently, even if they are in `requirements.txt`.* It's good practice to acknowledge the tools you build upon.
