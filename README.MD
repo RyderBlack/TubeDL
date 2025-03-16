@@ -111,4 +111,3 @@ This project is licensed under the [MIT License](LICENSE) - see the LICENSE file
 *   LibreTranslate
 *   EdgeTTS
 *   MoviePy
-*   *And any other libraries you use prominently, even if they are in `requirements.txt`.* It's good practice to acknowledge the tools you build upon.
