@@ -6,6 +6,9 @@
 
 This personal project is a Python application with a graphical user interface (GUI) built using Tkinter/CustomTkinter. It allows users to download YTube videos as MP4 (video) or MP3 (audio) files, and it includes an experimental feature for translating videos from English to French or Russian.
 
+![Main Screen](./tubeDL_01.png) 
+*Main screen*
+
 ## Features
 
 *   ** YTube Download:**
