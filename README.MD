@@ -1,14 +1,14 @@
-# YouTube Downloader & Translator
+# TubeDL
 
-[![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
 [![Tkinter](https://img.shields.io/badge/Tkinter-GUI-yellow.svg)](https://docs.python.org/3/library/tkinter.html)
 [![CustomTkinter](https://img.shields.io/badge/CustomTkinter-GUI-orange.svg)](https://github.com/TomSchimansky/CustomTkinter)
 
-This personal project is a Python application with a graphical user interface (GUI) built using Tkinter/CustomTkinter. It allows users to download YouTube videos as MP4 (video) or MP3 (audio) files, and it includes an experimental feature for translating videos from English to French or Russian.
+This personal project is a Python application with a graphical user interface (GUI) built using Tkinter/CustomTkinter. It allows users to download YTube videos as MP4 (video) or MP3 (audio) files, and it includes an experimental feature for translating videos from English to French or Russian.
 
 ## Features
 
-*   **YouTube Download:**
+*   ** YTube Download:**
     *   Downloads YouTube videos.
     *   Provides options to download as MP4 (video) or MP3 (audio).
 *   **Transcription (WhisperAI):**
@@ -25,7 +25,7 @@ This personal project is a Python application with a graphical user interface (G
 ## Installation
 
 1.  **Prerequisites:**
-    *   Python 3.x (tested with Python 3.7+)
+    *   Python 3.13 (tested with Python 3.7+)
     *   All required libraries are listed in `requirements.txt`.
     *   FFmpeg (required by Whisper and MoviePy)
 
@@ -38,8 +38,8 @@ This personal project is a Python application with a graphical user interface (G
 3.  **Clone the Repository:**
 
     ```bash
-    git clone <your_repository_url>  # Replace with your repository URL
-    cd <your_project_directory>  # Replace with your project directory name
+    git clone https://github.com/RyderBlack/TubeDL.git
+    cd TubeDL 
     ```
 
 4.  **Create a Virtual Environment (Recommended):**
